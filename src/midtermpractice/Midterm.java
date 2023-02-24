@@ -14,13 +14,30 @@ public class Midterm {
         //System.out.println("Enter your grade: ");
         //int grade = scan.nextInt();
         System.out.println("how much was the test out of?");
-        int total = scan.nextInt();
+        double total = scan.nextDouble();
         System.out.println("how much did you get?");
-        int mark = scan.nextInt();
-        
-        int grade = mark/total;
-        System.out.println("your grade is " + grade + "%");
-        
+        double mark = scan.nextDouble();
+        Grade grade = new Grade(100,78);
+        grade.setGrade(total, mark);
+        System.out.println("your grade is " + grade.getGrade() + "%");
+    }
+}
+    
+class Grade{
+    public double grade;
+    Grade(){
+        grade = 0;
+    }
+    Grade(double t, double m){
+        this.grade = (m/t)*100;
+    }
+
+    public void setGrade(double t, double m) {
+        this.grade = (m/t)*100;
+    }
+
+    public double getGrade() {
+        return grade;
     }
 
 }
